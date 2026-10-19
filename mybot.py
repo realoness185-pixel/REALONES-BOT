@@ -59,7 +59,7 @@ TOKEN = os.environ.get('TOKEN')
 
 # ئەگەر ل سەر کۆمپیوتەری بی و TOKEN نەبوو، ڤێ تۆکنێ ب کار دئینیت
 if not TOKEN:
-    TOKEN = 'MTQ4NTc0Mzk2OTMxNTg0ODIzOQ.GT1Yy1._lC6DwGUN9SCYYbE0ZhRV_mxj4AuPx3XHyYVGE'
+    TOKEN = ''
 
 intents = discord.Intents.default()
 intents.message_content = True 
@@ -613,35 +613,7 @@ async def on_message(message):
     # ئەڤ دێڕە گەلەک گرنگە دا کومانداێن دی نەوەستن
     await bot.process_commands(message)
 
-    # 35 auto spowner 2
-@bot.event
-async def on_message(message):
-    # ناهێلیت بۆت بەرسڤا خۆ بدەت
-    if message.author.bot:
-        return
-
-    # --- تنظیمات ---
-    TRIGGER_WORD = "reklam" # ئەو پەیڤا تە دڤێت
-    ROLE_ID_1 = 1560732105925857411  # ئایدییا ڕۆڵێ ئێکێ (Staff / Admin)
-    ROLE_ID_2 =1111111111111111111  # 👈 ل ڤێرە ئایدییا ڕۆڵێ دووێ دابنێ
-    CHANNEL_ID = 1560734376239562884 # ئایدییا وی کەناڵێ تە دڤێت کوماندا تێدا کار بکەت
-
-    # پشکنین: ئەرێ نامە ل وی کەناڵی هاتینە و پەیڤ تێدا هەبوو؟
-    if message.channel.id == CHANNEL_ID:
-        if TRIGGER_WORD in message.content.lower():
-            embed = discord.Embed(
-                description=f" {message.author.mention} ل نێزیکترین دەم بەرسڤا تە دێ هێتە دان ژ لایێ ستافی ڤە. ✅",
-                color=0xff0000
-            )
-            
-            # 🔥 ناردنا نامەیێ دگەل تاگکرنا هەردوو ڕۆڵان ب لێکدابڕانی خشتەکی
-            await message.channel.send(content=f"<@&{ROLE_ID_1}> ", embed=embed)
-            
-            # ئەگەر تە ڤیا نامەیا وی کەسی ژێببەی:
-            # await message.delete()
-
-    # ئەڤ دێڕە گەلەک گرنگە دا کومانداێن دی نەوەستن
-    await bot.process_commands(message)
+   
 
 # 36 welcome 
 import discord
